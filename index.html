@@ -3,26 +3,150 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>The Shoppies</title>
   </head>
   <body>
+
     <header>
+      <button class="view">View Nominations</button>
       <h1 class="app-title">The Shoppies</h1>
       <form id="form">
-        <input type="text" id="search" class="search" placeholder="Search">
+        <input type="text" id="search" class="search" placeholder="Search" />
       </form>
     </header>
 
-    <main id="main">
-      <!-- Display movie cards in this section. -->
-    </main>
-
-    <div class="noms-container">
+    <div class="noms-container hidden">
       <!-- Display nominations here -->
+      <div class="nom-header">
+        <h3>Current Nominations</h3>
+        <button class="home" id="home">Go Back Home</button>
+      </div>
+
+      <div class="nom-movies">
+        <div class="nom-movie">
+          <img
+            src="images/anika-mikkelson-dWYjy9zIiF8-unsplash.jpg"
+            alt="movie-thumbnail"
+          />
+          <div class="nom-movie-info">
+            <h4>Movie Title (2021)</h4>
+            <button class="btn-sm" id="remove">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </div>
+        <div class="nom-movie">
+          <img
+            src="images/anika-mikkelson-dWYjy9zIiF8-unsplash.jpg"
+            alt="movie-thumbnail"
+          />
+          <div class="sm-movie-info">
+            <h4>Movie Title (2021)</h4>
+            <button class="btn-sm" id="remove">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </div>
+        <div class="nom-movie">
+          <img
+            src="images/anika-mikkelson-dWYjy9zIiF8-unsplash.jpg"
+            alt="movie-thumbnail"
+          />
+          <div class="sm-movie-info">
+            <h4>Movie Title (2021)</h4>
+            <button class="btn-sm" id="remove">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </div>
+        <div class="nom-movie">
+          <img
+            src="images/anika-mikkelson-dWYjy9zIiF8-unsplash.jpg"
+            alt="movie-thumbnail"
+          />
+          <div class="sm-movie-info">
+            <h4>Movie Title (2021)</h4>
+            <button class="btn-sm" id="remove">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </div>
+        <div class="nom-movie">
+          <img
+            src="images/anika-mikkelson-dWYjy9zIiF8-unsplash.jpg"
+            alt="movie-thumbnail"
+          />
+          <div class="sm-movie-info">
+            <h4>Movie Title (2021)</h4>
+            <button class="btn-sm" id="remove">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <script src="script.js"></script>
+    <main id="main">
+      <!-- Display movie cards in this section. -->
+      <div class="movie">
+        <img
+          src="images/anika-mikkelson-dWYjy9zIiF8-unsplash.jpg"
+          alt="movie-title"
+        />
+        <div class="movie-info">
+          <h3>Movie Title</h3>
+          <span class="movie-year">2021</span>
+        </div>
+        <div class="nominate">
+          <button class="btn" id="nomination">Nominate Movie</button>
+        </div>
+      </div>
+      <div class="movie">
+        <img
+          src="images/anika-mikkelson-dWYjy9zIiF8-unsplash.jpg"
+          alt="movie-title"
+        />
+        <div class="movie-info">
+          <h3>Movie Title</h3>
+          <span class="movie-year">2021</span>
+        </div>
+        <div class="nominate">
+          <button class="btn" id="nomination">Nominate Movie</button>
+        </div>
+      </div>
+      <div class="movie">
+        <img
+          src="images/anika-mikkelson-dWYjy9zIiF8-unsplash.jpg"
+          alt="movie-title"
+        />
+        <div class="movie-info">
+          <h3>Movie Title</h3>
+          <span class="movie-year">2021</span>
+        </div>
+        <div class="nominate">
+          <button class="btn" id="nomination">Nominate Movie</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- <div class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>
+          You've now reached the limit of nominations. If you would like to
+          change any of them, please review your nominations by clicking "View
+          Nominations" in the Home page".
+        </p>
+      </div>
+    </div> -->
+    <script src="script-api.js"></script>
   </body>
 </html>
