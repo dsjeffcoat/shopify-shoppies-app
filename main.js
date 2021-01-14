@@ -11,7 +11,6 @@ const search = document.getElementById('search')
 
 const nomEl = document.querySelector('.noms-container')
 const nominees = document.querySelectorAll('.nom-movie')
-const noResults = document.getElementById('no-results')
 
 let nominations = []
 
@@ -20,6 +19,7 @@ let nominations = []
 
 const IMG_PATH = 'http://img.omdbapi.com/?apikey=711fa2f8&i='
 const SEARCH_API = 'http://www.omdbapi.com/?apikey=711fa2f8&type=movie&s='
+const MOVIE_API = 'http://www.omdbapi.com/?apikey=711fa2f8&type=movie&i='
 
 // API Functionality 
 
@@ -49,7 +49,7 @@ function getMovies(searchText) {
                         <span class="movie-year">${movie.Year}</span>
                     </div>
                     <div class="nominate">
-                        <button class="nom-btn" id="nom">Nominate Movie</button>
+                        <button class="nom-btn" id="nom" onClick="addNominee('${movie.imdbID}')">Nominate Movie</button>
                     </div>
                 </div>
                 `
@@ -62,9 +62,27 @@ function getMovies(searchText) {
         })
 }
 
+function addNominee(id){
+    sessionStorage.setItem('movieId', id);
 
+    let movieId = sessionStorage.getItem('movieId');
 
+    axios.get(MOVIE_API + movieId)
+        .then((response) => {
+            console.log(response)
+            let nomMovie = response.data;
+            
+            nominations.push(nomMovie)
+            // console.log(nominations)
 
+            // if (nominations === nominations.length) {
+
+            // }
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+}
 
 // Event Listeners 
 
