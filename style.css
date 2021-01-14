@@ -176,6 +176,7 @@ main {
     z-index: 1;
     left: 0;
     top: 0;
+    background-color: var(--palette-color-4);
     background-color:rgba(0, 0, 0, 0.9);
     overflow-y: hidden;
     transition: all 0.5s;
@@ -287,3 +288,53 @@ main {
     outline: none;
 }
 
+/* Modal Setup */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--palette-color-4);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--palette-color-1);
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid var(--palette-color-2);
+    color: #ccc;
+    width: 80%;
+    font-size: 1.2rem;
+}
+
+.modal-content strong {
+    color: #fff;
+}
+
+.modal-btn {
+    background-color: transparent;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close {
+    color: var(--palette-color-5);
+    font-size: 1.5rem;
+    float: right;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    outline: none;
+    color: var(--palette-color-3);
+    text-decoration: none;
+    cursor: pointer;
+}
