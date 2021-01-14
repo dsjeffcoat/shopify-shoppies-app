@@ -34,9 +34,9 @@ header {
 }
 
 .app-title {
-    font-size: 24px;
+    font-size: 30px;
     color: var(--palette-color-5);
-    
+    font-weight: bold;
 }
 
 .view {
@@ -49,7 +49,7 @@ header {
     color: var(--palette-color-3);
     background-color: inherit;
     font-family: inherit;
-    border-radius: 15px;
+    border-radius: 50px;
     cursor: pointer;
     transition: transform 0.3s ease-in;
 }
@@ -170,7 +170,7 @@ main {
 /* Nominations Overlay  */
 
 .noms-container {
-    height: 75%;
+    height: 80%;
     width: 100%;
     position: fixed;
     z-index: 1;
@@ -179,7 +179,7 @@ main {
     background-color: var(--palette-color-4);
     background-color:rgba(0, 0, 0, 0.9);
     overflow-y: hidden;
-    transition: all 0.5s;
+    transition: 0.5s linear;
 }
 
 .noms-container h3 {
@@ -214,7 +214,7 @@ main {
     color: var(--palette-color-3);
     background-color:rgba(0, 0, 0, 1);
     font-family: inherit;
-    border-radius: 15px;
+    border-radius: 50px;
     transition: transform 0.3s ease-in;
     cursor: pointer;
 }
@@ -252,7 +252,7 @@ main {
     position: relative;
     overflow: hidden;
     border-radius: 3px;
-    transition: all 0.5s linear;
+    animation: fadeIn 0.5s linear;
 }
 
 .nom-movie img {
@@ -301,6 +301,17 @@ main {
     overflow: auto;
     background-color: var(--palette-color-4);
     background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.5s linear;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .modal-content {
