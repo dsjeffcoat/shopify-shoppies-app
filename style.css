@@ -15,10 +15,10 @@
 }
 
 body {
-   background-image: linear-gradient(to top, var(--palette-color-1) 0%, var(--palette-color-3) 100%);
+   background-color: var(--palette-color-2);
    background-size: cover;
    background-repeat: no-repeat;
-   background-position: center;
+   background-position: fixed;
    height: 100vh;
    font-family: 'Poppins', sans-serif;
    margin: 0;
@@ -110,11 +110,12 @@ main {
 
 .main-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-main h1 {
+.main-content h1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,7 +124,7 @@ main h1 {
     text-align: center;
 }
 
-main h1.hidden {
+.main-content h1.hidden {
     display: none;
 }
 
