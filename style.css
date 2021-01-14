@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
 
 :root {
     --palette-color-1: #224b2b;
@@ -6,6 +7,7 @@
     --palette-color-3: #89ff5b;
     --palette-color-4: #0F1700;
     --palette-color-5: #F3F3DF;
+    --logo-font: 'Lobster', sans-serif;
 }
 
 * {
@@ -26,17 +28,30 @@ body {
 
 header {
     position: relative;
-    padding: 1rem;
+    padding: .3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--palette-color-4);
 }
 
-.app-title {
-    font-size: 30px;
+.app-title h1 {
+    position: relative;
+    font-family: var(--logo-font);
+    font-size: 40px;
     color: var(--palette-color-5);
+    text-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
     font-weight: bold;
+}
+
+.fa-film {
+    font-size: 80px;
+    position: absolute;
+    top: 14px;
+    left: 47.5%;
+    transform: rotate(-25deg);
+    color: var(--palette-color-2);
+    z-index: 0;
 }
 
 .view {
@@ -91,6 +106,25 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--palette-color-4);
+    font-size: 40px;
+    text-align: center;
+}
+
+main h1.hidden {
+    display: none;
 }
 
 .movie {
@@ -149,7 +183,7 @@ main {
     transform: translateY(0);
 }
 
-.btn {
+.nom-btn {
     border: none;
     padding: 10px 20px;
     font-family: inherit;
@@ -159,18 +193,23 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.btn:focus {
+.nom-btn:focus {
     outline: none;
 }
 
-.btn:active {
+.nom-btn:active {
     transform: scale(0.98);
+}
+
+.nom-btn:disabled {
+    background-color: var(--palette-color-4);
+    color: var(--palette-color-3);
 }
 
 /* Nominations Overlay  */
 
 .noms-container {
-    height: 80%;
+    height: 100%;
     width: 100%;
     position: fixed;
     z-index: 1;
@@ -240,8 +279,8 @@ main {
     align-items: center;
     top: 0;
     width: 100%;
-    transform: all 0.3s ease-in;
     padding: 0 30px;
+    animation: fadeIn 2s linear;
 }
 
 .nom-movie {
@@ -252,7 +291,6 @@ main {
     position: relative;
     overflow: hidden;
     border-radius: 3px;
-    animation: fadeIn 0.5s linear;
 }
 
 .nom-movie img {
@@ -286,6 +324,22 @@ main {
 
 .nom-movie-info #home:focus {
     outline: none;
+}
+
+#remove {
+    background-color: var(--palette-color-4);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--palette-color-5);
+}
+
+#remove:focus {
+    outline: none;
+}
+
+#remove:active {
+    transform: scale(0.98);
 }
 
 /* Modal Setup */

@@ -15,7 +15,7 @@
   <body>
     <header>
       <button class="view" id="view">View Nominations</button>
-      <h1 class="app-title">The Shoppies</h1>
+      <div class="app-title"><i class="fa fa-film"></i><h1>The Shoppies</h1></div>
       <form id="form">
         <input type="text" id="search" class="search" placeholder="Search" />
       </form>
@@ -92,47 +92,14 @@
       </div>
     </div>
 
+    <div class="main-content">
+      <h3>Please type your movie title in the search bar to search the database.</h3>
+    </div>
+
     <main id="main">
       <!-- Display movie cards in this section. -->
-      <div class="movie">
-        <img
-          src="images/anika-mikkelson-dWYjy9zIiF8-unsplash.jpg"
-          alt="movie-title"
-        />
-        <div class="movie-info">
-          <h3>Movie Title</h3>
-          <span class="movie-year">2021</span>
-        </div>
-        <div class="nominate">
-          <button class="btn" id="nomination">Nominate Movie</button>
-        </div>
-      </div>
-      <div class="movie">
-        <img
-          src="images/anika-mikkelson-dWYjy9zIiF8-unsplash.jpg"
-          alt="movie-title"
-        />
-        <div class="movie-info">
-          <h3>Movie Title</h3>
-          <span class="movie-year">2021</span>
-        </div>
-        <div class="nominate">
-          <button class="btn" id="nomination">Nominate Movie</button>
-        </div>
-      </div>
-      <div class="movie">
-        <img
-          src="images/anika-mikkelson-dWYjy9zIiF8-unsplash.jpg"
-          alt="movie-title"
-        />
-        <div class="movie-info">
-          <h3>Movie Title</h3>
-          <span class="movie-year">2021</span>
-        </div>
-        <div class="nominate">
-          <button class="btn" id="nomination">Nominate Movie</button>
-        </div>
-      </div>
+
+      <h1 class="hidden" id="no-results">No results were located in the database. Please try again.</h1>
     </main>
 
     <div class="modal">
