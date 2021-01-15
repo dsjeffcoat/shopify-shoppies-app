@@ -74,6 +74,7 @@ function addNominee(id) {
             // console.log(response)
             let nomMovie = response.data;
 
+
             if (nominations.length > 4) {
                 modal.classList.add('show')
             } else {
@@ -106,7 +107,7 @@ closeBtn.addEventListener('click', () => {
 // Functions 
 
 function showNominees(nominations) {
-    
+
     let output = ''
 
     $.each(nominations, (index, nomination) => {
@@ -118,7 +119,7 @@ function showNominees(nominations) {
             />
             <div class="nom-movie-info">
                 <h4>${nomination.Title} (${nomination.Year})</h4>
-                <button class="btn-sm" id="remove">
+                <button class="btn-sm" id="remove" onClick="removeNom('${nomination.imdbID}')">
                     <i class="fas fa-trash-alt"></i>
                 </button>
             </div>
@@ -127,9 +128,30 @@ function showNominees(nominations) {
     })
 
     $('.nom-movies').html(output)
+
 }
 
 function removeNom(id) {
-    pass
+
+    sessionStorage.setItem('movieId', id);
+    let movieId = sessionStorage.getItem('movieId');
+
+    axios.get(MOVIE_API + movieId)
+        .then((response) => {
+            // console.log(response)
+            let nomMovie = response.data.imdbID;
+
+            console.log(nomMovie)
+            // console.log(nominations)
+
+            remainingNoms = nominations.filter(data => data.imdbID != nomMovie)
+            nominations = remainingNoms
+            showNominees(nominations)
+            // nomBtn.disabled = true;
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+
 }
 
