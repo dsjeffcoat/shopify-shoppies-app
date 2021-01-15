@@ -2,8 +2,10 @@
 
 const viewBtn = document.getElementById('view')
 const homeBtn = document.getElementById('home')
-const nomBtn = document.getElementById('nom')
-const remove = document.getElementById('remove')
+const nomBtn = document.querySelectorAll('.nom-btn')
+const removeBtn = document.getElementById('remove')
+const closeBtn = document.querySelector('.close')
+const modal = document.querySelector('.modal')
 
 const main = document.getElementById('main')
 const form = document.getElementById('form')
@@ -62,22 +64,24 @@ function getMovies(searchText) {
         })
 }
 
-function addNominee(id){
+function addNominee(id) {
     sessionStorage.setItem('movieId', id);
 
     let movieId = sessionStorage.getItem('movieId');
 
     axios.get(MOVIE_API + movieId)
         .then((response) => {
-            console.log(response)
+            // console.log(response)
             let nomMovie = response.data;
-            
-            nominations.push(nomMovie)
-            // console.log(nominations)
 
-            // if (nominations === nominations.length) {
+            if (nominations.length > 4) {
+                modal.classList.add('show')
+            } else {
+                nominations.push(nomMovie)
+            }
 
-            // }
+            console.log(nominations)
+            // nomBtn.disabled = true;
         })
         .catch((err) => {
             console.log(err)
@@ -88,23 +92,44 @@ function addNominee(id){
 
 viewBtn.addEventListener('click', () => {
     nomEl.classList.remove('hidden')
+    showNominees(nominations)
 })
 
 homeBtn.addEventListener('click', () => {
     nomEl.classList.add('hidden')
 })
 
-nominees.forEach((nom, idx) => {
-    // console.log(idx)
-    // TODO: Set up showing of nominees
-
-    nom.addEventListener('click', () => {
-        removeNom(idx)
-    })
+closeBtn.addEventListener('click', () => {
+    modal.classList.remove('show')
 })
 
 // Functions 
 
-function removeNom(idx) {
+function showNominees(nominations) {
+    
+    let output = ''
+
+    $.each(nominations, (index, nomination) => {
+        output += `
+        <div class="nom-movie">
+            <img
+            src="${nomination.Poster}"
+            alt="${nomination.Title}"
+            />
+            <div class="nom-movie-info">
+                <h4>${nomination.Title} (${nomination.Year})</h4>
+                <button class="btn-sm" id="remove">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+        </div>
+        `
+    })
+
+    $('.nom-movies').html(output)
+}
+
+function removeNom(id) {
     pass
 }
+

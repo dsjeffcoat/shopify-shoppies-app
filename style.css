@@ -365,6 +365,10 @@ main {
     overflow: auto;
     background-color: var(--palette-color-4);
     background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal.show {
+    display: block;
     animation: fadeIn 0.5s linear;
 }
 
@@ -378,13 +382,23 @@ main {
     }
 }
 
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 .modal-content {
     position: relative;
     background-color: var(--palette-color-1);
     margin: 20% auto;
     padding: 20px;
     border: 1px solid var(--palette-color-2);
-    color: #ccc;
+    color: #aaa;
     width: 80%;
     font-size: 1.2rem;
 }
@@ -409,7 +423,7 @@ main {
 
 .close:hover, .close:focus {
     outline: none;
-    color: var(--palette-color-3);
+    color: var(--palette-color-4);
     text-decoration: none;
     cursor: pointer;
 }
