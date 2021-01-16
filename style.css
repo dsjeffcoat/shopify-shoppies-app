@@ -95,7 +95,7 @@ header {
 
 .search:focus {
     outline: 0;
-    background-color: var(--palette-color-4);
+    background-color: transparent;
     color: var(--palette-color-5);
 }
 
@@ -115,26 +115,13 @@ main {
     align-items: center;
 }
 
-.main-content h1 {
+.main-content h3 {
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--palette-color-4);
-    font-size: 40px;
+    font-size: 24px;
     text-align: center;
-}
-
-.main-content h1.hidden {
-    display: none;
-}
-
-.results {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: 2rem;
-    padding: 10px 0;
 }
 
 .movie {
@@ -426,4 +413,61 @@ main {
     color: var(--palette-color-4);
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Responsive Setup  */
+
+@media (max-width: 800px) {
+    header {
+        padding: .2rem;
+        position: sticky;
+    }
+    
+    .app-title h1 {
+        font-size: 1rem;
+        margin-left: -4px;
+    }
+
+    .fa-film {
+        font-size: 40px;
+        top: 10%;
+        left: 44.5%;
+    }
+
+    .view {
+        font-size: .5rem;
+        margin-left: -2px;
+    }
+
+    .search {
+        font-size: .4rem;
+    }
+
+    .main-content h3 {
+        font-size: 12px;
+    }
+
+    .movie-info h3 {
+        font-size: 1rem;
+    }
+
+    .noms-container {
+        max-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nom-movies {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nom-movie img {
+        display: none;
+    }
+
+    .modal-content {
+        font-size: 1rem;
+        display: flex;
+    }
 }
