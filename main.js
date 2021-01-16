@@ -51,7 +51,7 @@ function getMovies(searchText) {
                         <span class="movie-year">${movie.Year}</span>
                     </div>
                     <div class="nominate">
-                        <button class="nom-btn" id="nom" onClick="addNominee('${movie.imdbID}')">Nominate Movie</button>
+                        <button class="nom-btn" id="nom${index}" onClick="addNominee('${movie.imdbID}', '${index}')">Nominate Movie</button>
                     </div>
                 </div>
                 `
@@ -64,21 +64,23 @@ function getMovies(searchText) {
         })
 }
 
-function addNominee(id) {
+function addNominee(id, index) {
     sessionStorage.setItem('movieId', id);
 
     let movieId = sessionStorage.getItem('movieId');
+
+    const nom = document.getElementById(`nom${index}`)
 
     axios.get(MOVIE_API + movieId)
         .then((response) => {
             // console.log(response)
             let nomMovie = response.data;
 
-
             if (nominations.length > 4) {
                 modal.classList.add('show')
             } else {
                 nominations.push(nomMovie)
+                nom.disabled = true;
             }
 
             console.log(nominations)
