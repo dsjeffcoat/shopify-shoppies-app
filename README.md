@@ -4,7 +4,7 @@ The following project is my submission for the Shopify Coding Challenge for the 
 
 - Movie search through OMDB API
 - Ability to nominate movies to your favorites
-- Ability to remove picked nominations through a nominations modal
+- Ability to remove picked nominations through a nominations overlay
 - Modal presented when all five nominees are selected
 
 OMDB API Primary Source: http://www.omdbapi.com/
